@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Users</title>    
+  </head>
+  <body>
+    <div id="app">
+      <form action="/users/" method="POST">
+        {% csrf_token %}
+        <label for="name">Name</label>
+        <input type="text" name="name" id="name">
+        <label for="password">Password</label>
+        <input type="password" name="password" id="password">
+        <label for="age">Age</label>
+        <input type="number" name="age" id="age">
+        <label for="size">Size</label>
+        <input type="number" name="size" id="size" min="1" max="2" step="0.1" />
+        <button type="submit">Add</button>
+      </form>
+      </hr>
+      <table>
+        <thead>
+          <tr>
+            <th>Name</th>
+            <th>Password</th>
+            <th>Age</th>
+            <th>size</th>
+          </tr>
+        </thead>
+        <tbody>
+          {% for user in users %}
+          <tr>
+            <td>{{ user.name }}</td>
+            <td>{{ user.password }}</td>
+            <td>{{ user.age }}</td>
+            <td>{{ user.size }}</td>
+            <td><a href="/users/{{ user.id }}/detail/">查看详情</a></td>
+          </tr>
+          {% endfor %}
+        </tbody>
+      </table>
+    </div>
+  </body>
+</html>

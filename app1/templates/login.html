@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html>
+  <head>
+  <title>App1</title>
+  </head>
+  <body>
+    <h1>app1 登录页面</h1>
+    <form action="/login/" method="post">      
+      {% csrf_token %}
+      用户名：<input type="text" name="username"><br>
+      密码：<input type="password" name="password"><br>
+      <input type="submit" value="登录">
+      <span style="color: red">{{ error }}</span>
+    </form>
+</html>

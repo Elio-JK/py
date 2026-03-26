@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+  <head>
+  <title>新闻</title>
+  </head>
+  <body> 
+    <h1>方特新闻</h1>
+    <div><span>{{ news.totalPage }}</span></div>
+    <hr>
+      <ul>
+        {% for item in news.data %}
+          <li>
+            <div>{{ item.news_title }}</div>
+            <div>{{ item.news_time }}</div>
+          </li>
+        {% endfor %}
+      </ul>
+    <hr>
+    {% for i in m %}
+      <span> {{ i }} </span>
+    {% endfor %}
+    </br>
+      {{ m.0 }} -> {{ m.1 }}
+    <hr>
+    pageSize: {{ news.pageSize }}
+    {% if news.pageSize > 2 %}
+      <span>页数大于2</span>
+    {% else  %}
+      <span>页数小于2</span>
+    {% endif %}
+
+    <hr>
+    <ul>
+      <!-- 循环字典 obj.keys, obj.values, obj.items -->
+      {% for k, v in n.items %}
+      <li> {{ k }} = {{ v }} </li>
+      {% endfor %}
+    </ul>
+  </body>
+</html>
